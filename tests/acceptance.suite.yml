@@ -1,0 +1,41 @@
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - WebDriver
+        - Helper\Acceptance
+        - Asserts
+
+
+    config:
+        WebDriver:
+            url: 'http://www.mowdirect.co.uk/'
+
+            restart: false
+            browser: chrome
+            window_size: 800x1200
+            #clear_cookies: false
+# --run in browserstack--
+            #host: 'hub.browserstack.com'
+            #port: 80
+# -- login in browserstack
+            capabilities:
+             browserstack.user: 'alex4556'
+             browserstack.key: 'w1447cpT1SQuyFthNZr3'
+
+env:
+
+  # for tablet testing
+
+  google_nexus_7:
+      modules:
+        config:
+           WebDriver:
+              browser: android
+              capabilities:
+               platform: 'ANDROID'
+               device: 'Google Nexus 7'
+               browserstack.debug: 'true'
+               unexpectedAlertBehaviour: 'accept'
+               pageLoadStrategy: 'eager'
+
+
