@@ -13,7 +13,7 @@ class CategoryNavigation
     // T1359
 
     public static $deals = '//a[@href="/sale-begins-now"]';
-    public static $shopNow = '.curved.shadow.shop-now';
+    public static $shopNow = '.full-range-name';
     public static $bestDeals = 'ul > li:nth-of-type(2) > span > a';
     public static $clearZone = '.floating-ticket>a';
 
@@ -42,6 +42,13 @@ class CategoryNavigation
         $I = $this->tester;
         $I->waitAndClick(self::$deals);
         $I->waitAndClick(self::$shopNow);
+        $test = count($I->grabMultiple('//div[@class="breadcrumb-clear"]//ul/li'));
+
+        if ($test == 1) {
+            $I->waitForElement(self::$bestDeals);
+            $I->waitForText('The Best Deals Around');
+            $I->click(self::$bestDeals);
+        };
         $I->waitForElement(self::$bestDeals);
         $I->waitForText('The Best Deals Around');
         $I->click(self::$bestDeals);

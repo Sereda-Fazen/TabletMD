@@ -12,7 +12,8 @@ modules:
 
             restart: false
             browser: chrome
-            window_size: 800x1200
+            #window_size: 800x1200
+            window_size: 1920x1080
             #clear_cookies: false
 # --run in browserstack--
             #host: 'hub.browserstack.com'
@@ -26,16 +27,31 @@ env:
 
   # for tablet testing
 
-  google_nexus_7:
+  samsung_galaxy_tab_4:
       modules:
         config:
            WebDriver:
               browser: android
               capabilities:
                platform: 'ANDROID'
-               device: 'Google Nexus 7'
+               device: 'Samsung Galaxy Tab 4 10.1'
                browserstack.debug: 'true'
                unexpectedAlertBehaviour: 'accept'
                pageLoadStrategy: 'eager'
+
+
+  iPad2:
+      modules:
+        config:
+           WebDriver:
+              browser: iPhone
+              capabilities:
+               platform: 'MAC'
+               device: 'iPad 2 (5.0)'
+               browserstack.debug: 'true'
+               unexpectedAlertBehaviour: 'accept'
+               pageLoadStrategy: 'eager'
+
+
 
 
