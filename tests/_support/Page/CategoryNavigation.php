@@ -40,15 +40,9 @@ class CategoryNavigation
 
     public function saleDepartment(){
         $I = $this->tester;
+
         $I->waitAndClick(self::$deals);
         $I->waitAndClick(self::$shopNow);
-        $test = count($I->grabMultiple('//div[@class="breadcrumb-clear"]//ul/li'));
-
-        if ($test == 1) {
-            $I->waitForElement(self::$bestDeals);
-            $I->waitForText('The Best Deals Around');
-            $I->click(self::$bestDeals);
-        };
         $I->waitForElement(self::$bestDeals);
         $I->waitForText('The Best Deals Around');
         $I->click(self::$bestDeals);

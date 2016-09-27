@@ -12,8 +12,9 @@ modules:
 
             restart: false
             browser: chrome
-            #window_size: 800x1200
-            window_size: 1920x1080
+            #window_size: 768x1024
+            window_size: 800x1200
+            #window_size: 360x640
             #clear_cookies: false
 # --run in browserstack--
             #host: 'hub.browserstack.com'
@@ -22,6 +23,9 @@ modules:
             capabilities:
              browserstack.user: 'alex4556'
              browserstack.key: 'w1447cpT1SQuyFthNZr3'
+             browserstack.debug: 'true'
+             unexpectedAlertBehaviour: 'accept'
+             pageLoadStrategy: 'eager'
 
 env:
 
@@ -35,9 +39,7 @@ env:
               capabilities:
                platform: 'ANDROID'
                device: 'Samsung Galaxy Tab 4 10.1'
-               browserstack.debug: 'true'
-               unexpectedAlertBehaviour: 'accept'
-               pageLoadStrategy: 'eager'
+
 
 
   iPad2:
@@ -48,9 +50,7 @@ env:
               capabilities:
                platform: 'MAC'
                device: 'iPad 2 (5.0)'
-               browserstack.debug: 'true'
-               unexpectedAlertBehaviour: 'accept'
-               pageLoadStrategy: 'eager'
+
 
 
 

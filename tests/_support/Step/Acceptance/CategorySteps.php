@@ -14,7 +14,11 @@ class CategorySteps extends \AcceptanceTester
         $I = $this;
         $I->click('//div[@class="category-collateral lawn-garden-tractors"]/div[' . rand(1, 2) . ']/div/a');
         $I->waitForElement('//*[@title="See our Full Range"]');
-        $I->click('.curved.shadow.shop-now');
+        $test = $I->grabAttributeFrom('//*[@class="mdgo-widget mdgo-our-full-range curved shadow clearfix"]', 'See our Full Range');
+        if ($test > 1) {
+            $I->click('.curved.shadow.shop-now');
+        }
+        $I->click('//*[@class="mdgo-widget mdgo-our-full-range curved shadow clearfix"]/a/img');
     }
 
     public function randomPanel ()
